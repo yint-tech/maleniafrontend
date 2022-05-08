@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Grid } from '@material-ui/core';
 import {
-  Device,
+  UserDashboard,
 } from './components';
 
 const useStyles = makeStyles(theme => ({
@@ -31,7 +31,7 @@ const Dashboard = () => {
           sm={12}
           xs={12}
         >
-          <Device />
+          <UserDashboard />
         </Grid>
       </Grid>
     </div>

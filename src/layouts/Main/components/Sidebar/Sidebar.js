@@ -11,6 +11,8 @@ import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices';
 import DnsIcon from '@material-ui/icons/Dns';
 import PermDeviceInformationIcon from '@material-ui/icons/PermDeviceInformation';
 import FlipIcon from '@material-ui/icons/Flip';
+import DashboardSharpIcon from '@material-ui/icons/DashboardSharp';
+import SettingsIcon from '@material-ui/icons/Settings';
 import { AppContext } from 'adapter';
 import { makeStyles } from '@material-ui/styles';
 import { Divider, Drawer } from '@material-ui/core';
@@ -53,48 +55,31 @@ const Sidebar = props => {
       icon: <DashboardIcon />
     },
     {
-      title: '白名单配置',
+      title: 'IP白名单',
       href: '/whitelist',
       icon: <FlipIcon />
     },
     {
-      title: '已购产品',
-      href: '/policy',
+      title: '代理产品',
+      href: '/product',
       icon: <GrainIcon />
     },
     {
-      title: '产品列表',
-      href: '/proxyProduct',
-      icon: <ImportantDevicesIcon />
-    },
-    {
       title: '中间人注入',
-      href: '/file',
+      href: '/mitm',
       icon: <PeopleIcon />
     }
   ];
 
   if (user.isAdmin) {
     pages = pages.concat([{
-      title: '私有产品',
-      href: '/userPrivateProduct',
-      icon: <PersonAddIcon />
-    }, {
-      title: 'IP资源',
-      href: '/ipResource',
-      icon: <DnsIcon />
-    }, {
       title: '账号信息',
       href: '/account',
       icon: <ChildCareIcon />
     }, {
-      title: '服务器列表',
-      href: '/proxyNodes',
-      icon: <CellWifiIcon />
-    }, {
-      title: '日志',
-      href: '/log',
-      icon: <PermDeviceInformationIcon />
+      title: "系统面板",
+      href: "/system",
+      icon: <DashboardSharpIcon/>
     }]);
   }
 

@@ -79,7 +79,7 @@ const Topbar = props => {
     <IconButton
       className={classes.signOutButton}
       color="inherit"
-      onClick={() => window.open('https://github.com/virjar')}
+      onClick={() => window.open('https://github.com/yint-tech')}
     >
       <GitHubIcon />
       <Typography

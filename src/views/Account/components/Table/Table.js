@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import Pagination from '@material-ui/lab/Pagination';
 import DirectionsRailwayIcon from '@material-ui/icons/DirectionsRailway';
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
@@ -113,7 +114,26 @@ const DataTable = props => {
         history.push('/');
       }
     });
-  }
+  };
+
+  const grantAdmin = (item) =>{
+    apis.grantAdmin({
+      userName: item.userName,
+      isAdmin: !item.isAdmin,
+    }).then(res => {
+      if (res.status !== 0) {
+        enqueueSnackbar(res.errorMessage || res.message, {
+          variant: 'error',
+          anchorOrigin: {
+            vertical: 'top',
+            horizontal: 'center',
+          },
+        });
+      } else {
+        setRefresh(+new Date());
+      }
+    });
+  };
 
   return (
     <Card
@@ -130,7 +150,13 @@ const DataTable = props => {
             }, {
               label: '密码',
               key: 'passwd'
-            }, {
+            } ,{
+              label: '管理员',
+              render:(item)=>(
+                item.isAdmin?(<p>是</p>):(<p>否</p>)
+              )
+            }
+            , {
               label: '余额',
               key: 'balance'
             }, {
@@ -154,6 +180,13 @@ const DataTable = props => {
                     className={classes.tableButton}
                     onClick={() => doLogin(item)}
                     variant="contained">登录</Button>
+                  <Button
+                    startIcon={<SupervisorAccountIcon style={{ fontSize: 16 }} />}
+                    size="small"
+                    color="primary"
+                    className={classes.tableButton}
+                    onClick={() => grantAdmin(item)}
+                    variant="contained">{item.isAdmin?"移除管理员":"升级管理员"}</Button>
                   <Button
                     startIcon={<AddShoppingCartIcon style={{ fontSize: 16 }} />}
                     size="small"

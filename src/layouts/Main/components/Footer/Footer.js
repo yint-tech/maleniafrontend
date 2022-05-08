@@ -21,7 +21,7 @@ const Footer = props => {
       className={clsx(classes.root, className)}
     >
       <Typography variant="body1">
-        Malenia
+        Malenia-玛莲妮亚代理中台系统
       </Typography>
       <Typography variant="caption">
         &copy; 2022 因体信息公司

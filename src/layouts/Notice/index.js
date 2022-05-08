@@ -39,7 +39,11 @@ const Notice = () => {
     <div className={classes.notice}>
       {intPushMsg ? (<div>{intPushMsg}</div>) : null}
       <div>
-        过期时间：<strong>{moment(new Date(Number(certificate.expire))).format('YYYY-MM-DD HH:mm')}</strong>、授权人：<strong>{certificate.user}</strong>
+        过期时间：<strong>{moment(new Date(Number(certificate.expire))).format("YYYY-MM-DD HH:mm")}</strong>、
+        {certificate.user === "0" ? (<strong>试用版本</strong>) :
+          (<p>授权人：<strong>{ certificate.user}</strong></p>)
+        }
+
       </div>
     </div>
   );

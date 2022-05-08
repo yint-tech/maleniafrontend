@@ -8,23 +8,17 @@ import { AppContext } from 'adapter';
 
 import {
   Dashboard as DashboardView,
-  ProxyNode as ProxyNodeView,
-  Policy as PolicyView,
-  Proxy as ProxyView,
   Account as AccountView,
   Whitelist as WhitelistView,
-  Config as ConfigView,
-  Log as LogView,
   ProxyProductEdit as ProxyProductEditView,
-  ProxyProduct as ProxyProductView,
+  Product as ProductView,
   ProductSource as ProductSourceView,
-  UserPrivateProduct as UserPrivateProductView,
-  IpResource as IpResourceView,
   IpResourceEdit as IpResourceEditView,
   SignIn as SignInView,
   SignUp as SignUpView,
   NotFound as NotFoundView,
-  File as FileView,
+  MITM as MITMView,
+  System as SystemView
 } from './views';
 
 const PrivateRoute = ({ ...rest }) => {
@@ -61,10 +55,10 @@ const Routes = () => {
         path="/productSourceEdit/:id?"
       />
       <PrivateRoute
-        component={ProxyProductView}
+        component={ProductView}
         exact
         layout={MainLayout}
-        path="/proxyProduct"
+        path="/product"
       />
       <PrivateRoute
         component={ProxyProductEditView}
@@ -73,22 +67,10 @@ const Routes = () => {
         path="/proxyProductEdit/:id?"
       />
       <PrivateRoute
-        component={IpResourceView}
+        component={MITMView}
         exact
         layout={MainLayout}
-        path="/ipResource"
-      />
-      <PrivateRoute
-        component={FileView}
-        exact
-        layout={MainLayout}
-        path="/file"
-      />
-      <PrivateRoute
-        component={UserPrivateProductView}
-        exact
-        layout={MainLayout}
-        path="/userPrivateProduct"
+        path="/mitm"
       />
       <PrivateRoute
         component={IpResourceEditView}
@@ -103,41 +85,19 @@ const Routes = () => {
         path="/dashboard"
       />
       <PrivateRoute
-        component={LogView}
+        component={SystemView}
         exact
         layout={MainLayout}
-        path="/log"
+        path="/system"
       />
-      <PrivateRoute
-        component={ProxyNodeView}
-        exact
-        layout={MainLayout}
-        path="/proxyNodes"
-      />
+
       <PrivateRoute
         component={WhitelistView}
         exact
         layout={MainLayout}
         path="/whitelist"
       />
-      <PrivateRoute
-        component={ConfigView}
-        exact
-        layout={MainLayout}
-        path="/config"
-      />
-      <PrivateRoute
-        component={PolicyView}
-        exact
-        layout={MainLayout}
-        path="/policy"
-      />
-      <PrivateRoute
-        component={ProxyView}
-        exact
-        layout={MainLayout}
-        path="/proxy"
-      />
+
       <RouteWithLayout
         component={SignInView}
         exact

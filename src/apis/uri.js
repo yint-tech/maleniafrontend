@@ -20,6 +20,8 @@ export default {
   listServer: "/malenia/admin-op/listServer get", // 列出 server
   setServerStatus: "/malenia/admin-op/setServerStatus get", // 设置服务器状态
   modifyOrderBandwidthLimit: "/malenia/admin-op/modifyOrderBandwidthLimit get", // 修改价格
+  grantAdmin: "/malenia/admin-op/grantAdmin get", // 模拟登录
+
   // product-config-controller
   purchaseUpdateStatus: "/malenia/admin-config/updateStatus get", // 禁用产品
   updateStatus: "/malenia/admin-config/updateStatus get", // 代理产品生效状态
@@ -39,6 +41,7 @@ export default {
   adminGetMetricNames: "/malenia/admin-report/getMetricNames", // 获取指标名称
   usageTopTen: "/malenia/admin-report/topTenUser get", // top 10
   logList: "/malenia/admin-report/listSystemLog get", // 日志
+  rechargeRecordsList:"/malenia/admin-report/listRechargeRecords get",
 
   // user
   login: "/malenia/user-info/login post query", // 登录
@@ -63,12 +66,11 @@ export default {
 
 
   mitmLogs: "/malenia/user-report/mitmLogs", // Mitm 拦截日志
-  fetchMetric: "/malenia/user-report/fetchMetric", // 获取指标
-  getMetricNames: "/malenia/user-report/getMetricNames", // 获取指标名称
   listAllOrders: "/malenia/user-report/listOrder get", // 已购买产品订单列表
   billList: "/malenia/user-report/listBill get", // 订购流水
   listAllProducts: "/malenia/user-report/listAllProducts get", // 全量代理产品列表
-
+  userFetchMetric: "/malenia/user-report/fetchMetric", // 获取指标
+  userGetMetricNames: "/malenia/user-report/getMetricNames", // 获取指标名称
   // notice
   notice: "/malenia/system-info/notice get", // 系统通知
 

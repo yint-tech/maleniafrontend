@@ -5,6 +5,7 @@ import { doAnalysis, initChart, initData } from './utils';
 
 export const MetricCharts = ({
   metricAccuracy,
+  isAdmin,
   name,
   poly,
   height = '300px'
@@ -24,7 +25,9 @@ export const MetricCharts = ({
 
   useEffect(() => {
     if (!name) return;
-    apis.adminFetchMetric({ metricAccuracy, name }).then(res => {
+    var FetchMetricFun = isAdmin? apis.adminFetchMetric:apis.userFetchMetric;
+
+    FetchMetricFun({ metricAccuracy, name }).then(res => {
       if (res.status === 0) {
         setBaseData(res.data)
       }

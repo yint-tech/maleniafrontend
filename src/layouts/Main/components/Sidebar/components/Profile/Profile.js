@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
-import { Link, Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
-import { Avatar, Divider, Typography } from '@material-ui/core';
+import { Avatar, Typography } from '@material-ui/core';
 import { AppContext } from 'adapter';
 import Alert from '@material-ui/lab/Alert';
-import SettingsIcon from '@material-ui/icons/Settings';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
@@ -56,12 +55,6 @@ const Profile = () => {
       </div>
       <div className={classes.user}>
         <Typography variant="h5">余额: {user.balance}</Typography>
-        {user.isAdmin ? (
-          <>
-            <Divider orientation="vertical" className={classes.line} />
-            <Link to="/config" className={classes.setting}><SettingsIcon style={{ fontSize: '14px' }} />系统设置</Link>
-          </>
-        ) : null}
       </div>
       {notice ? (
         <Alert severity="info">{notice}</Alert>
