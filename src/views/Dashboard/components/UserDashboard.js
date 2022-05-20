@@ -97,7 +97,7 @@ const Budget = props => {
   const [product, setProduct] = useState("all");
   const [products, setProducts] = useState([]);
 
-  const [top10, setTop10] = useState([]);
+  // const [top10, setTop10] = useState([]);
 
   const [metricChartName, setMetricChartName] = useState("");
   const [metricChartTime, setMetricChartTime] = useState("minutes");
@@ -119,7 +119,7 @@ const Budget = props => {
     }).catch(e => console.log(e));
     apis.usageTopTen({ page: 1, pageSize: 1000 }).then(res => {
       if (res.status === 0) {
-        setTop10([...res.data]);
+        // setTop10([...res.data]);
       }
     }).catch(e => console.log(e));
   }, []);
@@ -324,6 +324,10 @@ const Budget = props => {
             }, {
               label: "价格",
               key: "consumeAmount"
+            }
+            , {
+              label: "当前余额",
+              key: "userBalance"
             }, {
               label: "计费方式",
               render: (item) => {
@@ -334,7 +338,7 @@ const Budget = props => {
               }
             }, {
               label: "时间",
-              key: "reconciliationTime"
+              key: "billTime"
             }
           ]}
         />

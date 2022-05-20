@@ -105,20 +105,20 @@ const Form = () => {
     return {
       sourceKey: '',
       description: '',
-      loadProcessor: '',
+      loadProcessor: 'IpPortPlain',
       loadUrl: '',
       authUserNameExpression: '',
       upstreamUserName: '',
       upstreamUserPassword: '',
-      poolSize: 0,
-      connectionIdleSeconds: '',
+      poolSize: 10,
+      connectionIdleSeconds: '20',
       enabled: true,
-      makeConnCacheInterval: '',
-      maxAlive: '',
+      makeConnCacheInterval: '20',
+      maxAlive: '300',
       needTest: false,
-      reloadInterval: '',
-      statusTestExp: '',
-      supportProtocol: '',
+      reloadInterval: '240',
+      statusTestExp: '60<35|20<70|20<80',
+      supportProtocol: 'HTTP,HTTPS',
       tuningParam: '',
     }
   });
@@ -213,8 +213,8 @@ const Form = () => {
       <CardContent>
         <Grid container spacing={6} wrap="wrap" >
           <InputItem
-            label="资源名称"
-            placeholder="请填写资源名称"
+            label="资源ID"
+            placeholder="请填写资源唯一标识（建议字母下划线）"
             value={form.sourceKey}
             onChange={(e) => setForm({
               ...form,

@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/styles";
-import { Card, CardContent, CardHeader, Divider, MenuItem, Select } from "@material-ui/core";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  Divider,
+  MenuItem,
+  Select,
+} from "@material-ui/core";
 import { Table } from "views/common";
 import { MetricCharts } from "components/MetricCharts";
 import clsx from "clsx";
@@ -65,8 +72,8 @@ const useStyles = makeStyles(theme => ({
 const Budget = props => {
   const { className, ...rest } = props;
   const classes = useStyles();
-
-  const [top10, setTop10] = useState([]);
+  const [certificate, setCertificate] = useState({});
+  const [top10] = useState([]);
 
   const [metricChartName, setMetricChartName] = useState("");
   const [metricChartTime, setMetricChartTime] = useState("minutes");
@@ -78,6 +85,10 @@ const Budget = props => {
         setMetricChartName(res.data[0]);
       }
     });
+    apis.getNowCertificate().then(res => {
+      res && setCertificate(res);
+    }).catch(() => {
+    });
   }, []);
 
 
@@ -86,6 +97,15 @@ const Budget = props => {
       {...rest}
       className={clsx(classes.root, className)}
     >
+      {
+        certificate ?(
+            <p>
+              授权序列号 : {certificate.certificateId}
+            </p>
+        ): null
+      }
+      <Divider/>
+
 
       <CardHeader title="系统指标" action={(
         <>

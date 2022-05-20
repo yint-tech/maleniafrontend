@@ -48,7 +48,7 @@ function Product() {
             onChange={handleChange}
           >
             <Tab label="产品列表"/>
-            <Tab label="已购产品"/>
+            <Tab label="订单"/>
 
             {
               user.isAdmin ? <Tab label="私有产品"/> : null

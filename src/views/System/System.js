@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/styles";
 
 import {
@@ -6,7 +6,6 @@ import {
   Tabs,
   Tab
 } from "@material-ui/core";
-import { AppContext } from "adapter";
 import AdminDashBoard from "./AdminDashBoard";
 import Config from "./Config";
 import Log from "./Log";
@@ -32,7 +31,6 @@ function System() {
   const classes = useStyles();
 
   const [value, setValue] = useState(0);
-  const { user } = useContext(AppContext);
 
   const handleChange = (event, val) => {
     setValue(val);

@@ -76,7 +76,7 @@ const DataTable = props => {
   const classes = useStyles();
 
   const handlePageChange = (event, page) => {
-    setPage(page);
+    setPage(Number(page));
   };
   const showProductDialog = (userId, oepnAction) => {
     apis.getUserPrivateProductIds({ userId: userId })
@@ -116,7 +116,7 @@ const DataTable = props => {
     });
   };
 
-  const grantAdmin = (item) =>{
+  const grantAdmin = (item) => {
     apis.grantAdmin({
       userName: item.userName,
       isAdmin: !item.isAdmin,
@@ -150,10 +150,10 @@ const DataTable = props => {
             }, {
               label: '密码',
               key: 'passwd'
-            } ,{
+            }, {
               label: '管理员',
-              render:(item)=>(
-                item.isAdmin?(<p>是</p>):(<p>否</p>)
+              render: (item) => (
+                item.isAdmin ? (<p>是</p>) : (<p>否</p>)
               )
             }
             , {
@@ -186,7 +186,7 @@ const DataTable = props => {
                     color="primary"
                     className={classes.tableButton}
                     onClick={() => grantAdmin(item)}
-                    variant="contained">{item.isAdmin?"移除管理员":"升级管理员"}</Button>
+                    variant="contained">{item.isAdmin ? "移除管理员" : "升级管理员"}</Button>
                   <Button
                     startIcon={<AddShoppingCartIcon style={{ fontSize: 16 }} />}
                     size="small"
@@ -220,11 +220,11 @@ const DataTable = props => {
           onChange={(e) => {
             let max = Math.ceil(total / rowsPerPage) || 1;
             if (e.target.value > max) {
-              setPage(max)
+              handlePageChange(null, max)
             } else if (e.target.value < 1) {
-              setPage(1)
+              handlePageChange(null, 1)
             } else {
-              setPage(e.target.value)
+              handlePageChange(null, e.target.value)
             }
           }}
         />
@@ -293,7 +293,6 @@ const DataTable = props => {
         }}
         okText="保存"
         okType="primary" />
-
       <OpeDialog
         title="添加私有产品"
         opeContent={(
@@ -367,9 +366,6 @@ const DataTable = props => {
         }}
         okText="移除"
         okType="primary" />
-
-
-
     </Card>
   );
 };

@@ -27,13 +27,13 @@ const Notice = () => {
   const [certificate, setCertificate] = useState({});
 
   useEffect(() => {
-    apis.getIntPushMsg().then(res => {
-      setIntPushMsg(res);
-    }).catch(() => { });
-    apis.getNowCertificate().then(res => {
-      res && setCertificate(res);
-    }).catch(() => { });
-  }, [])
+  apis.getIntPushMsg().then(res => {
+    res && res.status!==404 && setIntPushMsg(res);
+  }).catch(() => { });
+  apis.getNowCertificate().then(res => {
+    res && res.status!==404 && setCertificate(res);
+  }).catch(() => { });
+}, []);
 
   const noticeBtn = (
     <div className={classes.notice}>

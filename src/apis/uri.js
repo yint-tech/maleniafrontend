@@ -1,20 +1,11 @@
 export default {
-  setUserAlertConfig: "/malenia/user-alert-config post query", //
-  getUserAlertConfig: "/malenia/user-alert-config get", //
-  userQuota: "/malenia/user-info/setupQuota get", // 设置 quota
-
-  removeConfig: "/malenia/sys-config/removeConfig get", // removeConfig
-  triggerBoardCast: "/malenia/proxy-server-node/triggerBoardCast post", // triggerBoardCast
-
-
-
   // admin
   // operator-controller
   userLogin: "/malenia/admin-op/travelToUser get", // 模拟登录
   rechargeUser: "/malenia/admin-op/rechargeUser get", // 用户充值
   userAdd: "/malenia/admin-op/createUser get", // 创建用户
   userList: "/malenia/admin-op/listUser get", // 用户列表
-  setConfig: "/malenia/admin-op/setConfig get", // config 单条
+  setConfig: "/malenia/admin-op/setConfig post", // config 单条
   setConfigs: "/malenia/admin-op/setConfigs post", // config all
   allConfig: "/malenia/admin-op/allConfig get", // 所有 config
   listServer: "/malenia/admin-op/listServer get", // 列出 server
@@ -55,7 +46,7 @@ export default {
   whiteList: "/malenia/user-op/listAuthWhiteIp get", // 白名单列表
   whiteListAdd: "/malenia/user-op/addWhiteIp get", // 白名单新增
   whiteListDelete: "/malenia/user-op/deleteAuthWhiteIp get", // 白名单删除
-  switchBalanceMethod: "/malenia/user-op/switchBalanceMethod get", // 切换产品计费模式
+  editUserOrder: "/malenia/user-op/updateOrder get", // 编辑订单
   listAsset: "/malenia/user-op/listAsset get", // 资产文件列表
   uploadAsset: "/malenia/user-op/uploadAsset form", // 新增资产文件
   deleteAsset: "/malenia/user-op/deleteAsset get", // 删除资产文件

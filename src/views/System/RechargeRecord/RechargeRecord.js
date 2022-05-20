@@ -19,7 +19,7 @@ const User = () => {
   const [keyword, setKeyword] = useState('');
   const [limit] = useState(10);
   const [page1, setPage1] = useState(1);
-  const [refresh1, setRefresh1] = useState(+new Date());
+  const [refresh1] = useState(+new Date());
 
   const [table1, setTable1] = useState([]);
 

@@ -1,12 +1,14 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
+const target ="http://haproxy.virjar.com:8000/";
+//const target ="http://127.0.0.1:5810/";
+//const target ="http://maleniatest.virjar.com:5810/";
+
 module.exports = function(app) {
   app.use(
     '/malenia',
     createProxyMiddleware({
-      // http://bj1.virjar.com
-      //target: 'http://192.168.31.135:5810',
-      target: 'http://maleniatest.virjar.com:5810',
+      target: target,
       changeOrigin: true,
       pathRewrite: {
         "^/malenia": "/malenia"
@@ -16,9 +18,7 @@ module.exports = function(app) {
   app.use(
     '/malenia-doc',
     createProxyMiddleware({
-      // http://bj1.virjar.com
-      //target: 'http://192.168.31.135:5810',
-      target: 'http://maleniatest.virjar.com:5810',
+      target: target,
       changeOrigin: true,
       pathRewrite: {
         "^/malenia-doc": "/malenia-doc"
@@ -28,9 +28,7 @@ module.exports = function(app) {
   app.use(
     '/build-in-res',
     createProxyMiddleware({
-      // http://bj1.virjar.com
-      //target: 'http://192.168.31.135:5810',
-      target: 'http://maleniatest.virjar.com:5810',
+      target: target,
       changeOrigin: true,
       pathRewrite: {
         "^/build-in-res": "/build-in-res"
@@ -40,9 +38,7 @@ module.exports = function(app) {
   app.use(
     '/yint-stub',
     createProxyMiddleware({
-      // http://bj1.virjar.com
-      //target: 'http://192.168.31.135:5810',
-      target: 'http://maleniatest.virjar.com:5810',
+      target: target,
       changeOrigin: true,
       pathRewrite: {
         "^/yint-stub": "/yint-stub"

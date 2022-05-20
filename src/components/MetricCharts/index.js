@@ -25,14 +25,14 @@ export const MetricCharts = ({
 
   useEffect(() => {
     if (!name) return;
-    var FetchMetricFun = isAdmin? apis.adminFetchMetric:apis.userFetchMetric;
+    let FetchMetricFun = isAdmin? apis.adminFetchMetric:apis.userFetchMetric;
 
     FetchMetricFun({ metricAccuracy, name }).then(res => {
       if (res.status === 0) {
         setBaseData(res.data)
       }
     }).catch(e => console.log(e));
-  }, [metricAccuracy, name])
+  }, [metricAccuracy, name, isAdmin])
 
   useEffect(() => {
     let c = initChart()

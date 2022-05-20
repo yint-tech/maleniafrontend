@@ -403,6 +403,19 @@ const Form = () => {
       )
     },
     {
+      key: "malenia.docNotice",
+      name: "文档首页通告信息",
+      desc: "文档首页通告信息,可以配置html片段代码",
+      component: (
+        <SingleInputItem
+          multiline
+          placeholder="系统通告信息"
+          initKey="malenia.docNotice"
+          initValue={configs["malenia.docNotice"]}
+          reload={() => setRefresh(+new Date())}/>
+      )
+    },
+    {
       key: "malenia.serverURLBase",
       name: "系统运行服务器的服务地址",
       desc: "系统会尝试自动生成，也可以被用户直接指定。http://malenia.iinti.cn",
